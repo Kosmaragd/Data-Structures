@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kosma\\source\\repos\\DataStructures\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5CC2BDFC-403A-496C-9FD0-592C16DEE6B4}|DataStructures\\DataStructures.csproj|c:\\users\\kosma\\source\\repos\\datastructures\\datastructures\\programtestbed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CC2BDFC-403A-496C-9FD0-592C16DEE6B4}|DataStructures\\DataStructures.csproj|solutionrelative:datastructures\\programtestbed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CC2BDFC-403A-496C-9FD0-592C16DEE6B4}|DataStructures\\DataStructures.csproj|c:\\users\\kosma\\source\\repos\\datastructures\\datastructures\\arraylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CC2BDFC-403A-496C-9FD0-592C16DEE6B4}|DataStructures\\DataStructures.csproj|solutionrelative:datastructures\\arraylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArrayList.cs",
+              "DocumentMoniker": "C:\\Users\\kosma\\source\\repos\\DataStructures\\DataStructures\\ArrayList.cs",
+              "RelativeDocumentMoniker": "DataStructures\\ArrayList.cs",
+              "ToolTip": "C:\\Users\\kosma\\source\\repos\\DataStructures\\DataStructures\\ArrayList.cs",
+              "RelativeToolTip": "DataStructures\\ArrayList.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwCYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T20:56:16.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProgramTestbed.cs",
+              "DocumentMoniker": "C:\\Users\\kosma\\source\\repos\\DataStructures\\DataStructures\\ProgramTestbed.cs",
+              "RelativeDocumentMoniker": "DataStructures\\ProgramTestbed.cs",
+              "ToolTip": "C:\\Users\\kosma\\source\\repos\\DataStructures\\DataStructures\\ProgramTestbed.cs",
+              "RelativeToolTip": "DataStructures\\ProgramTestbed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T20:56:27.708Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

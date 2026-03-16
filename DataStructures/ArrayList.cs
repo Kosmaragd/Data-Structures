@@ -2,19 +2,20 @@
 {
     public class ArrayList<T> : IList<T>
     {
+        #region Array Initialization
         private T[] array;
-        private const int sizeIncrement = 10;
-        private readonly int expansionMultiplier = 2;
+        private const int expansionMultiplier = 2;
         private int count;
+        #endregion
+
         public ArrayList(int sizeAllocation)
         {
             array = new T[sizeAllocation];
-            count = sizeAllocation;
         }
 
         public T Get(int index)
         {
-            if(index > array.Length)
+            if (index > array.Length)
             {
                 throw new IndexOutOfRangeException("The selected index is out of range");
             }
@@ -23,20 +24,25 @@
 
         public int Add(T element)
         {
-            if(array.Length > array.Length + 1) Resize(); //TODO FIX THIS
+            if (array.Length < count + 1)
+            {
+                Resize(); //TODO FIX THIS
+            }
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = element;
+                if (array[i] == null)
+                {
+                    array[i] = element;
+                    break;
+                }
+                count++;
             }
             return array.Length;
         }
 
-        public void Remove(int offset)
+        public void Remove(int index)
         {
-            for(int i = 0;i < array.Length; i++)
-            {
 
-            }
         }
 
         public void Clear()
@@ -52,9 +58,17 @@
         public int Find(T element, int startAt)
         {
             throw new NotImplementedException();
+            //for(int i = startAt; i< array.Length; i++)
+            //{
+            //    if (array[i] == )
+            //    {
+
+            //    }
+            //}
+            //return -1;
         }
 
-  
+
         public void Insert(T element, int index)
         {
             throw new NotImplementedException();
@@ -68,10 +82,10 @@
         /// <summary>
         /// Expands the current size of the array 
         /// </summary>
-        public void Resize() 
+        public void Resize()
         {
             T[] copyArray = new T[array.Length * expansionMultiplier];  //Resize method only concerns usage outside of main utilies of a List
-            for (int i = 0;i< array.Length; i++)                        //thus remaining out of the interface
+            for (int i = 0; i < array.Length; i++)                        //thus remaining out of the interface
             {
                 array[i] = copyArray[i];
             }
