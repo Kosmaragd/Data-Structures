@@ -24,7 +24,7 @@
 
         public int Add(T element)
         {
-            if (array.Length < count + 1)
+            if (array.Length == count)
             {
                 Resize(); //TODO FIX THIS
             }
@@ -42,7 +42,20 @@
 
         public void Remove(int index)
         {
-
+            //TODO FIX REMOVING ITEMS
+            T elementToRemove = array[index];
+            if (array[index].Equals(elementToRemove))
+            {
+                for (int i = 0;i < array.Length; i++)
+                {
+                    array[index -1] = elementToRemove;
+                    if(elementToRemove == null)
+                    {
+                        elementToRemove = array[index - 1];
+                    }
+                }
+                count--;
+            }
         }
 
         public void Clear()
