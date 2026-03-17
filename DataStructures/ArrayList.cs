@@ -6,12 +6,14 @@
         private T[] array;
         private const int expansionMultiplier = 2;
         private int count;
+        private readonly int startingSize;
         #endregion
 
         public ArrayList(int sizeAllocation)
         {
             array = new T[sizeAllocation];
             count = sizeAllocation;
+            startingSize = sizeAllocation;
         }
 
         public T Get(int index)
@@ -27,7 +29,7 @@
         {
             if (array.Length <= count + 1)
             {
-                Resize(); //TODO FIX THIS
+                Resize();
             }
             for (int i = 0; i < array.Length; i++)
             {
@@ -43,36 +45,36 @@
 
         public void Remove(int index)
         {
-            if(index < 0 || index > array.Length)
+            if (index < 0 || index > array.Length)
             {
                 throw new IndexOutOfRangeException("The current index is outside the bounds of the list");
             }
             T[] tempArray = new T[array.Length];
-            for(int i = 0;i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                if(i == index)
+                if (i == index)
                 {
                     array[i] = tempArray[i - 1];
                     break;
                 }
             }
-
             count--;
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            T[] tempArray = new T[startingSize];
+            array = tempArray; //TODO MAKE THE CLEAR 
         }
 
         public int Find(T element)
         {
-            for(int i = 0;i < array.Length;i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (array[i].Equals(element))
                 {
                     return i;
-                } 
+                }
             }
             throw new NullReferenceException();
         }
@@ -90,10 +92,24 @@
 
         }
 
-
         public void Insert(T element, int index)
         {
-            throw new NotImplementedException();
+            if (array.Length <= count + 1)
+            {
+                Resize();
+            }
+
+            if (index < 0 || index > array.Length)
+            {
+                throw new ArgumentOutOfRangeException("The Index is outside the bounds of the array");
+            }
+
+            for (int i = index; i < array.Length; i++)
+            {
+                array[i] = array[i + 1];
+            }
+            array[index] = element;
+            
         }
 
         public int Size()
@@ -106,9 +122,9 @@
         /// </summary>
         public void Resize()
         {
-            T[] copyArray = new T[array.Length * expansionMultiplier];  //Resize method only concerns usage outside of main utilies of a List
-            for (int i = 0; i < array.Length; i++)                      //thus remaining out of the interface
-            {
+            T[] copyArray = new T[array.Length + expansionMultiplier];  //Resize method only concerns usage outside of main utilies 
+            for (int i = 0; i < array.Length; i++)                      //of a List which is dynamically expanding size
+            {                                                           //thus remaining out of the interface
                 copyArray[i] = array[i];
             }
             array = copyArray;
