@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            ArrayList.ArrayList<string> list = new ArrayList.ArrayList<string>(4);
+            ArrayList.ArrayList<string> list = new ArrayList.ArrayList<string>(5);
 
             string name1 = "bobo";
             string name2 = "Aristotle";
@@ -14,15 +14,7 @@
 
             list.Add(name1);
             list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Add(name2);
-            list.Insert(name5, 2);
+            list.Insert(name5, 1);
 
             for(int i = 0;i < list.Size(); i++)
             {

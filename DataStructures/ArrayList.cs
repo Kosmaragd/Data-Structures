@@ -27,7 +27,7 @@
 
         public int Add(T element)
         {
-            if (array.Length <= count + 1)
+            if (array.Length == count + 1)
             {
                 Resize();
             }
@@ -38,7 +38,7 @@
                     array[i] = element;
                     break;
                 }
-                count++;
+                count = i;
             }
             return array.Length;
         }
@@ -94,21 +94,31 @@
 
         public void Insert(T element, int index)
         {
-            if (array.Length <= count + 1)
-            {
-                Resize();
-            }
+            //if (array.Length <= count + 1)
+            //{
+            //    Resize();
+            //}
 
             if (index < 0 || index > array.Length)
             {
                 throw new ArgumentOutOfRangeException("The Index is outside the bounds of the array");
             }
 
-            for (int i = index; i < array.Length; i++)
+
+            //THE ELEMENTS DONT COPY THEMSELVES TRY TO MAKE THEM COPY 
+            //MAYBE USE A T[]
+            for(int i = 0;i < array.Length - 1; i++)
             {
-                array[i] = array[i + 1];
+                if (array[index] != null)
+                {
+                    array[index] = array[index + 1];
+                }
             }
-            array[index] = element;
+
+            if (array[index] != null)
+            {
+                //throw new Exception("Failed to insert element, an object exists in the current index.");
+            }
             
         }
 
@@ -122,7 +132,7 @@
         /// </summary>
         public void Resize()
         {
-            T[] copyArray = new T[array.Length + expansionMultiplier];  //Resize method only concerns usage outside of main utilies 
+            T[] copyArray = new T[array.Length * expansionMultiplier];  //Resize method only concerns usage outside of main utilies 
             for (int i = 0; i < array.Length; i++)                      //of a List which is dynamically expanding size
             {                                                           //thus remaining out of the interface
                 copyArray[i] = array[i];
