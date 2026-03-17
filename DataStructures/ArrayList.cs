@@ -11,6 +11,7 @@
         public ArrayList(int sizeAllocation)
         {
             array = new T[sizeAllocation];
+            count = sizeAllocation;
         }
 
         public T Get(int index)
@@ -24,7 +25,7 @@
 
         public int Add(T element)
         {
-            if (array.Length == count)
+            if (array.Length <= count + 1)
             {
                 Resize(); //TODO FIX THIS
             }
@@ -42,20 +43,21 @@
 
         public void Remove(int index)
         {
-            //TODO FIX REMOVING ITEMS
-            T elementToRemove = array[index];
-            if (array[index].Equals(elementToRemove))
+            if(index < 0 || index > array.Length)
             {
-                for (int i = 0;i < array.Length; i++)
-                {
-                    array[index -1] = elementToRemove;
-                    if(elementToRemove == null)
-                    {
-                        elementToRemove = array[index - 1];
-                    }
-                }
-                count--;
+                throw new IndexOutOfRangeException("The current index is outside the bounds of the list");
             }
+            T[] tempArray = new T[array.Length];
+            for(int i = 0;i < array.Length; i++)
+            {
+                if(i == index)
+                {
+                    array[i] = tempArray[i - 1];
+                    break;
+                }
+            }
+
+            count--;
         }
 
         public void Clear()
@@ -65,20 +67,27 @@
 
         public int Find(T element)
         {
-            throw new NotImplementedException();
+            for(int i = 0;i < array.Length;i++)
+            {
+                if (array[i].Equals(element))
+                {
+                    return i;
+                } 
+            }
+            throw new NullReferenceException();
         }
 
         public int Find(T element, int startAt)
         {
-            throw new NotImplementedException();
-            //for(int i = startAt; i< array.Length; i++)
-            //{
-            //    if (array[i] == )
-            //    {
+            for (int i = startAt; i < array.Length; i++)
+            {
+                if (array[i].Equals(element))
+                {
+                    return i;
+                }
+            }
+            throw new NullReferenceException();
 
-            //    }
-            //}
-            //return -1;
         }
 
 
@@ -98,9 +107,9 @@
         public void Resize()
         {
             T[] copyArray = new T[array.Length * expansionMultiplier];  //Resize method only concerns usage outside of main utilies of a List
-            for (int i = 0; i < array.Length; i++)                        //thus remaining out of the interface
+            for (int i = 0; i < array.Length; i++)                      //thus remaining out of the interface
             {
-                array[i] = copyArray[i];
+                copyArray[i] = array[i];
             }
             array = copyArray;
         }

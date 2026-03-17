@@ -14,10 +14,10 @@
 
             list.Add(name1);
             list.Add(name2);
-            list.Remove(1);
 
             Console.WriteLine(list.Get(0));
             Console.WriteLine(list.Get(1));
+            Console.WriteLine(list.Size());
         }
     }
 }
