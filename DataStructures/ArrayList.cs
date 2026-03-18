@@ -94,32 +94,28 @@
 
         public void Insert(T element, int index)
         {
-            //if (array.Length <= count + 1)
-            //{
-            //    Resize();
-            //}
+            if (array.Length <= count + 1)
+            {
+                Resize();
+            }
 
             if (index < 0 || index > array.Length)
             {
                 throw new ArgumentOutOfRangeException("The Index is outside the bounds of the array");
             }
 
-
-            //THE ELEMENTS DONT COPY THEMSELVES TRY TO MAKE THEM COPY 
-            //MAYBE USE A T[]
-            for(int i = 0;i < array.Length - 1; i++)
+            for (int i = array.Length - 1; i > index; i--)
             {
-                if (array[index] != null)
-                {
-                    array[index] = array[index + 1];
-                }
+                array[i] = array[i - 1];
             }
+
+            array[index] = element;
 
             if (array[index] != null)
             {
                 //throw new Exception("Failed to insert element, an object exists in the current index.");
             }
-            
+
         }
 
         public int Size()

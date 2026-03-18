@@ -4,6 +4,20 @@
     {
         public static void Main(string[] args)
         {
+            //int[] ints = new int[4];
+
+            //ints[0] = 0;
+            //ints[1] = 1;
+            //ints[2] = 2;
+            //ints[3] = 3;
+            //InstertAt(ints, 1, 3);
+
+
+            //for (int i = 0; i < ints.Length; i++)
+            //{
+            //    Console.WriteLine(ints[i]);
+            //}
+
             ArrayList.ArrayList<string> list = new ArrayList.ArrayList<string>(5);
 
             string name1 = "bobo";
@@ -15,12 +29,22 @@
             list.Add(name1);
             list.Add(name2);
             list.Insert(name5, 1);
+            list.Remove(1);
 
-            for(int i = 0;i < list.Size(); i++)
+            for (int i = 0; i < list.Size(); i++)
             {
                 Console.WriteLine(list.Get(i));
             }
             Console.WriteLine(list.Size());
         }
+
+        //public static void InstertAt(int[] array, int index,int elementToAdd) //TESTER
+        //{
+        //    for(int i = array.Length -1; i > index; i--)
+        //    {
+        //        array[i] = array[i - 1];
+        //    }
+        //    array[index] = elementToAdd;
+        //}
     }
 }
