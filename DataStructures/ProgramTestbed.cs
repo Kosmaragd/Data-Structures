@@ -18,25 +18,40 @@
             //    Console.WriteLine(ints[i]);
             //}
 
-            ArrayList.ArrayList<string> list = new ArrayList.ArrayList<string>(5);
+            //ArrayList.ArrayList<string> list = new ArrayList.ArrayList<string>(5);
 
-            string name1 = "bobo";
-            string name2 = "Aristotle";
-            string name3 = "Platon";
-            string name4 = "Socrates";
-            string name5 = "Beggar Of Scorn";
+            //string name1 = "bobo";
+            //string name2 = "Aristotle";
+            //string name3 = "Platon";
+            //string name4 = "Socrates";
+            //string name5 = "Beggar Of Scorn";
 
-            list.Add(name1);
-            list.Add(name2);
-            list.Insert(name5, 1);
-            list.Add(name5);
-            list.Remove(1);
+            //list.Add(name1);
+            //list.Add(name2);
+            //list.Insert(name5, 1);
+            //list.Add(name5);
+            //list.Remove(1);
 
-            for (int i = 0; i < list.Size(); i++)
-            {
-                Console.WriteLine(list.Get(i));
-            }
-            Console.WriteLine(list.Size());
+            //for (int i = 0; i < list.Size(); i++)
+            //{
+            //    Console.WriteLine(list.Get(i));
+            //}
+
+            LinkedList.LinkedList<int> ints = new DataStructures.LinkedList.LinkedList<int>();
+            ints.Add(1);
+            ints.Add(2);
+            ints.Add(3);
+            ints.Add(4);
+            ints.Add(5);
+            ints.Add(6);
+            ints.Add(7);
+            ints.Add(8);
+            ints.Add(9);
+            ints.Add(10);
+            ints.Add(2);
+
+            Console.WriteLine(ints.Find(2,8));
+            Console.WriteLine(ints.Find(5));
         }
 
         //public static void InstertAt(int[] array, int index,int elementToAdd) //TESTER
