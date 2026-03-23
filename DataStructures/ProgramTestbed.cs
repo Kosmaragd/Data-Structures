@@ -1,4 +1,4 @@
-﻿namespace DataStructures
+﻿namespace KSmara.DataStructures
 {
     public class ProgramTestbed
     {
@@ -29,6 +29,7 @@
             list.Add(name1);
             list.Add(name2);
             list.Insert(name5, 1);
+            list.Add(name5);
             list.Remove(1);
 
             for (int i = 0; i < list.Size(); i++)

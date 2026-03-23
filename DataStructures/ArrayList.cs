@@ -1,4 +1,4 @@
-﻿namespace DataStructures.ArrayList
+﻿namespace KSmara.DataStructures.ArrayList
 {
     public class ArrayList<T> : IList<T>
     {
@@ -49,14 +49,9 @@
             {
                 throw new IndexOutOfRangeException("The current index is outside the bounds of the list");
             }
-            T[] tempArray = new T[array.Length];
-            for (int i = 0; i < array.Length; i++)
+            for (int i = index; i < array.Length - 1; i++)
             {
-                if (i == index)
-                {
-                    array[i] = tempArray[i - 1];
-                    break;
-                }
+                array[i] = array[i + 1];
             }
             count--;
         }
@@ -64,7 +59,7 @@
         public void Clear()
         {
             T[] tempArray = new T[startingSize];
-            array = tempArray; //TODO MAKE THE CLEAR 
+            array = tempArray; 
         }
 
         public int Find(T element)
@@ -110,12 +105,6 @@
             }
 
             array[index] = element;
-
-            if (array[index] != null)
-            {
-                //throw new Exception("Failed to insert element, an object exists in the current index.");
-            }
-
         }
 
         public int Size()
