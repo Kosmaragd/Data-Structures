@@ -44,14 +44,8 @@
             ints.Add(4);
             ints.Add(5);
             ints.Add(6);
-            ints.Add(7);
-            ints.Add(8);
-            ints.Add(9);
-            ints.Add(10);
-            ints.Add(2);
+            ints.ShowAllNodes();
 
-            Console.WriteLine(ints.Find(2,8));
-            Console.WriteLine(ints.Find(5));
         }
 
         //public static void InstertAt(int[] array, int index,int elementToAdd) //TESTER

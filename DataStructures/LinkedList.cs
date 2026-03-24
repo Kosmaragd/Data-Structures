@@ -92,21 +92,72 @@ namespace KSmara.DataStructures.LinkedList
 
         public void Insert(T element, int index)
         {
-            throw new NotImplementedException();
+            if (index >= count || index < 0)
+            {
+                throw new NullReferenceException();
+            }
+
+            Node? previous = null;
+            Node? nodeToAdd = new Node(element);
+            Node? current = first;
+
+            if (index == 0)
+            {
+                first = nodeToAdd;
+                count++;
+                return;
+            }
+
+        
+            int counter = 0;
+
+            while (current != null)
+            {
+                previous = current;
+                current = current.next;
+                counter++;
+
+                if (counter == index)
+                {
+                    nodeToAdd.next = current;
+                    previous.next = nodeToAdd;
+                    count++;
+                    return;
+                }
+
+            }
         }
 
         public void Remove(int index)
         {
-            if(index > count || index < 0)
+            if(index >= count || index < 0)
             {
                 throw new NullReferenceException();
             }
+
+            if(index == 0)
+            {
+                first = first?.next;
+                count--;
+                return;
+            }
+
             Node? previous = null;
             Node? current = first;
+            int counter = 0;
 
             while(current != null)
             {
+                previous = current;
+                current = current.next;
+                counter++;
 
+                if(counter == index)
+                {
+                    previous.next = current?.next;
+                    count--;
+                    return;
+                }
             }
         }
 
@@ -115,7 +166,19 @@ namespace KSmara.DataStructures.LinkedList
             return count;
         }
 
-        //TODO
+        public void ShowAllNodes()
+        {
+            Console.WriteLine("Node Value Links :");
+            Console.WriteLine(first.value);
+            Node current = first;
+            while(current.next != null)
+            {
+                current = current.next;
+                Console.WriteLine(current.value);
+            }
+
+        }
+
         public class Node
         {
             public T value;
@@ -136,7 +199,6 @@ namespace KSmara.DataStructures.LinkedList
             {
                 this.next = next;
             }
-
         }
     }
 }
