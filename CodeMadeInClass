@@ -18,9 +18,13 @@ public class ListMap<Tkey, TValue> : IMap<Tkey, TValue>
 
     public bool Contains(Tkey key)
     {
+        if(key == null)
+        {
+            return false;
+        }
         for (int i = 0; i < map.Size() - 1; i++)
         {
-            if(map.Get(i).pair.Equals(key))
+            if(map.Get(i).key.Equals(key))
             {
                 return true;
             }
@@ -59,4 +63,5 @@ public class ListMap<Tkey, TValue> : IMap<Tkey, TValue>
         return map.Size();
     }
 }
+
 
