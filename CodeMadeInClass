@@ -45,15 +45,17 @@ public class ListMap<Tkey, TValue> : IMap<Tkey, TValue>
             {
                return map.Get(i).pair;
             }
+            else
+            {
+                throw new Exception($"No key found in entries containing {key}");
+            }
         }
-        return default;
+        throw new Exception();
     }
 
     public void Set(Tkey key, TValue value)
     {
-        KeyValuePair pair = new KeyValuePair();
-        pair.key = key;
-        pair.pair = value;
+        KeyValuePair pair = new KeyValuePair() { key = key, pair = value }; 
         map.Add(pair);
 
     }
@@ -63,5 +65,4 @@ public class ListMap<Tkey, TValue> : IMap<Tkey, TValue>
         return map.Size();
     }
 }
-
 
