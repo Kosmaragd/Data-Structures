@@ -1,0 +1,7 @@
+   AgeDictionary.Set("Koko", 10); //SUCC
+   AgeDictionary.Set("Despo", 5); //SUCC
+   Console.WriteLine(AgeDictionary.Contains("Koko")); //SUCC
+   Console.WriteLine(AgeDictionary.Get("Koko")); //SUCC
+   Console.WriteLine(AgeDictionary.Get("Lolo"));
+
+As testbed in class
