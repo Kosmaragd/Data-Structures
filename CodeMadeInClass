@@ -1,0 +1,62 @@
+using KSmara.DataStructures.ArrayList;
+using KSmara.DataStructures.Map;
+
+public class ListMap<Tkey, TValue> : IMap<Tkey, TValue>
+{
+    IList<KeyValuePair> map = new ArrayList<KeyValuePair>(5);
+
+    private class KeyValuePair
+    {
+        public Tkey key;
+        public TValue pair;
+    }
+
+    public void Clear()
+    {
+       map.Clear();
+    }
+
+    public bool Contains(Tkey key)
+    {
+        for (int i = 0; i < map.Size() - 1; i++)
+        {
+            if(map.Get(i).pair.Equals(key))
+            {
+                return true;
+            }
+        }
+        return false;   
+    }
+
+    public TValue Get(Tkey key)
+    {
+        if(key == null)
+        {
+            throw new NullReferenceException();
+        }
+
+        for (int i = 0;i < map.Size()-1; i++)
+        {
+            if (map.Get(i).key!.Equals(key)) //At this point key is not null
+            {
+               return map.Get(i).pair;
+            }
+        }
+        return default;
+    }
+
+    public void Set(Tkey key, TValue value)
+    {
+        KeyValuePair pair = new KeyValuePair();
+        pair.key = key;
+        pair.pair = value;
+        map.Add(pair);
+
+    }
+
+    public int Size()
+    {
+        return map.Size();
+    }
+}
+
