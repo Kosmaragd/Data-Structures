@@ -1,0 +1,96 @@
+using KSmara.DataStructures;
+
+namespace KSmara.DataStructures.HasMap
+{
+    public class HashMap<TKey, TValue> : IMap<TKey, TValue>
+    {
+        private static int MAX_BUCKETS = 1009;
+        private List<KVPair<TKey,TValue>>[] _buckets = new List<KVPair<TKey,TValue>>[MAX_BUCKETS];
+       
+        public class KVPair<TKey,TValue>
+        {
+            public TKey key;
+            public TValue value;
+        }
+
+        public void Clear()
+        {
+            foreach (List<KVPair<TKey,TValue>> bucket in _buckets)
+            {
+                bucket.Clear();
+            }
+        }
+
+        public bool Contains(TKey key)
+        {
+           throw new Exception();
+        }
+
+        public TValue Get(TKey key)
+        {
+            if (key == null)
+            {
+                throw new NullReferenceException();
+            }
+            //Step 1 : Get HashCode
+            int hasCode = key.GetHashCode();
+
+            //Step 2 : Get Index
+            int index = hasCode % _buckets.Length;
+
+            //Step 3 : Get Bucket
+            if (_buckets[index] == null)
+            {
+                _buckets[index] = new List<KVPair<TKey, TValue>>();
+            }
+
+            List<KVPair<TKey, TValue>> newBucket = _buckets[index];
+
+            foreach (KVPair<TKey, TValue> k in newBucket)
+            {
+                if (k.key.Equals(key))
+                {
+                    return k.value;
+                }
+            }
+            throw new KeyNotFoundException();
+        }
+
+        public void Set(TKey key, TValue value)
+        {
+            if(key == null)
+            {
+                throw new NullReferenceException();
+            }
+            uint hashCode = (uint) key.GetHashCode(); //Get hash
+
+            uint index = hashCode % (uint) _buckets.Length; //Get index
+
+            if (_buckets[index] == null)
+            {
+                _buckets[index] = new List<KVPair<TKey, TValue>>();
+            }
+
+            List<KVPair<TKey,TValue>> refBucket = _buckets[index];  //Checks currentBucket 
+
+            foreach (KVPair<TKey,TValue> k in refBucket)
+            {
+                if (k.key.Equals(key))
+                {
+                    k.value = value;
+                }
+
+                if(k.key == null)
+                {
+                    Console.WriteLine("Key is null ");
+                    return;
+                }
+            }
+        }
+
+        public int Size()
+        {
+            return _buckets.Length;
+        }
+    }
+}
