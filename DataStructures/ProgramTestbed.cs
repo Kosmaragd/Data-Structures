@@ -1,4 +1,6 @@
-﻿namespace KSmara.DataStructures
+﻿using KSmara.DataStructures.ListMap;
+
+namespace KSmara.DataStructures
 {
     public class ProgramTestbed
     {
@@ -46,6 +48,12 @@
             ints.Add(6);
             ints.ShowAllNodes();
 
+            IMap<string,int> ageDictionary = new ListMap<string,int>();
+
+            ageDictionary.Set("Koko", 10); //SUCC
+            ageDictionary.Set("Despo", 5); //SUCC
+            Console.WriteLine(ageDictionary.Contains("Koko")); //SUCC
+            Console.WriteLine(ageDictionary.Get("Koko")); //SUCC
         }
 
         //public static void InstertAt(int[] array, int index,int elementToAdd) //TESTER
