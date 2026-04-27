@@ -5,9 +5,10 @@ namespace KSmara.DataStructures.HasMap
     public class HashMap<TKey, TValue> : IMap<TKey, TValue>
     {
         private static int MAX_BUCKETS = 1009;
-        private List<KVPair<TKey,TValue>>[] _buckets = new List<KVPair<TKey,TValue>>[MAX_BUCKETS];
-       
-        public class KVPair<TKey,TValue>
+        private List<KVPair<TKey, TValue>>[] _buckets = new List<KVPair<TKey, TValue>>[MAX_BUCKETS];
+        private bool hasFoundSlot = false;
+
+        public class KVPair<TKey, TValue>
         {
             public TKey key;
             public TValue value;
@@ -15,15 +16,37 @@ namespace KSmara.DataStructures.HasMap
 
         public void Clear()
         {
-            foreach (List<KVPair<TKey,TValue>> bucket in _buckets)
+            foreach (List<KVPair<TKey, TValue>> bucket in _buckets)
             {
-                bucket.Clear();
+                bucket?.Clear();
             }
         }
 
         public bool Contains(TKey key)
         {
-           throw new Exception();
+            if(key  == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            uint hashCode = (uint)key.GetHashCode();
+
+            uint index = hashCode % (uint)_buckets.Length;
+
+            if(_buckets[index] == null)
+            {
+                return false;
+            }
+
+            foreach(KVPair<TKey, TValue> pair in _buckets[index])
+            {
+                if (pair.key.Equals(key))
+                {
+                    return true;
+                }
+            }
+
+            return false;   
         }
 
         public TValue Get(TKey key)
@@ -32,13 +55,11 @@ namespace KSmara.DataStructures.HasMap
             {
                 throw new NullReferenceException();
             }
-            //Step 1 : Get HashCode
-            int hasCode = key.GetHashCode();
 
-            //Step 2 : Get Index
-            int index = hasCode % _buckets.Length;
+            uint hashCode = (uint)key.GetHashCode();
 
-            //Step 3 : Get Bucket
+            uint index = hashCode % (uint)_buckets.Length; 
+
             if (_buckets[index] == null)
             {
                 _buckets[index] = new List<KVPair<TKey, TValue>>();
@@ -58,34 +79,30 @@ namespace KSmara.DataStructures.HasMap
 
         public void Set(TKey key, TValue value)
         {
-            if(key == null)
+            if (key == null)
             {
                 throw new NullReferenceException();
             }
-            uint hashCode = (uint) key.GetHashCode(); //Get hash
+            uint hashCode = (uint)key.GetHashCode(); //Get hash
 
-            uint index = hashCode % (uint) _buckets.Length; //Get index
+            uint index = hashCode % (uint)_buckets.Length; //Get index
 
             if (_buckets[index] == null)
             {
                 _buckets[index] = new List<KVPair<TKey, TValue>>();
             }
 
-            List<KVPair<TKey,TValue>> refBucket = _buckets[index];  //Checks currentBucket 
+            List<KVPair<TKey, TValue>> refBucket = _buckets[index];  //Checks currentBucket 
 
-            foreach (KVPair<TKey,TValue> k in refBucket)
+            foreach (KVPair<TKey, TValue> k in refBucket)
             {
                 if (k.key.Equals(key))
                 {
                     k.value = value;
-                }
-
-                if(k.key == null)
-                {
-                    Console.WriteLine("Key is null ");
                     return;
                 }
             }
+            refBucket.Add(new KVPair<TKey, TValue> { key = key, value = value });
         }
 
         public int Size()
