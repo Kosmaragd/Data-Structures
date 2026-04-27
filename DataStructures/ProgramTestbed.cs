@@ -1,4 +1,5 @@
-﻿using KSmara.DataStructures.ListMap;
+﻿using KSmara.DataStructures.HashMap;
+using KSmara.DataStructures.ListMap;
 
 namespace KSmara.DataStructures
 {
@@ -54,6 +55,20 @@ namespace KSmara.DataStructures
             ageDictionary.Set("Despo", 5); //SUCC
             Console.WriteLine(ageDictionary.Contains("Koko")); //SUCC
             Console.WriteLine(ageDictionary.Get("Koko")); //SUCC
+
+            IMap<string,string> EnglishDicitonary = new HashMap<string,string>();
+            string resilience = "Resilience";
+            string ephemeral = "Ephemeral";
+            string resilienceDescription = "The ability to adapt well to adversity, trauma, tragedy, threats, or significant stress";
+            string ephemeralDescription = "Lasting for a short time";
+            string catharsis = "Catharsis";
+            string catharsisDescription = "The release of strong emotions through art or experience";
+            EnglishDicitonary.Set(resilience,resilienceDescription);
+            EnglishDicitonary.Set(ephemeral,ephemeralDescription);
+            EnglishDicitonary.Set(catharsis,catharsisDescription);
+            Console.WriteLine(EnglishDicitonary.Get(resilience));
+            Console.WriteLine(EnglishDicitonary.Get(ephemeral));
+            Console.WriteLine(EnglishDicitonary.Get(catharsis));
         }
 
         //public static void InstertAt(int[] array, int index,int elementToAdd) //TESTER

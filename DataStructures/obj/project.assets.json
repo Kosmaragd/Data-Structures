@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User01\\.nuget\\packages\\": {},
+    "C:\\Users\\kosma\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User01\\Source\\Repos\\Data-Structures\\DataStructures\\DataStructures.csproj",
+      "projectUniqueName": "C:\\Users\\kosma\\Source\\Repos\\Data-Structures\\DataStructures\\DataStructures.csproj",
       "projectName": "DataStructures",
-      "projectPath": "C:\\Users\\User01\\Source\\Repos\\Data-Structures\\DataStructures\\DataStructures.csproj",
-      "packagesPath": "C:\\Users\\User01\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User01\\Source\\Repos\\Data-Structures\\DataStructures\\obj\\",
+      "projectPath": "C:\\Users\\kosma\\Source\\Repos\\Data-Structures\\DataStructures\\DataStructures.csproj",
+      "packagesPath": "C:\\Users\\kosma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kosma\\Source\\Repos\\Data-Structures\\DataStructures\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kosma\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -72,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
